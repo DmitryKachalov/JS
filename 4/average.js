@@ -1,24 +1,18 @@
-let sum = 0;
-let count = 0;
-let avg = 0;
-let input;
+'use strict'
 
-do {
-    input = prompt("Введите число или пустую строку для завершения", "");
-    let number = parseFloat(input);
+let numbers = [];
+let sum;
+let average;
 
-    if (number) {
-        sum += number;
-        count++;
-        avg = sum / count;
+while (true) {
+    let number = prompt("Введите число", '');
 
-        console.log("Сумма", sum);
-        console.log("Количество", count);
-        console.log("Среднее арифметическое", avg);
-    } else if (input)
-        alert("Вы ввели не число. Введите число");
+    if (number === '') break;
 
-} while (input);
+    numbers.push(+number);
+    average = (sum = numbers.reduce((a, b) => a + b, 0)) / numbers.length;
+    console.log('Сумма чисел = ' + sum + '\n количество чисел = ' + numbers.length + '\n среднее арифметическое = ' + average + '\n');
+}
 
-alert(`Сумма: ${sum} Количество: ${count} Среднее арифметическое: ${avg}`);
+alert(`Сумма чисел = ${sum}\n количество чисел = ${numbers.length}\n среднее арифметическое = ${average}\n`)
 
